@@ -138,7 +138,7 @@
 
 ;;; Code:
 
-(require 'cl)
+(require 'cl-lib)
 (require 'dash)
 (require 's)
 (require 'subr-x)
@@ -198,7 +198,7 @@ E.g.
     (unless (string-empty-p (s-trim string))
       (wand-helper:eval-string sexp))))
 
-(defun* wand:create-rule (&key (skip-comment t)
+(cl-defun wand:create-rule (&key (skip-comment t)
                                match
                                capture
                                (action wand:eval-string))
@@ -292,7 +292,7 @@ Open file when input string is `file:///path/to/your-file`:
     (cons (function rule-check-fn)
           (function action-fn))))
 
-(defun* wand:execute (&optional (string-to-execute ""))
+(cl-defun wand:execute (&optional (string-to-execute ""))
   "Executes a string based on predefined rules stored in
 `wand:*rules*.  If no rules are found, eval the string using
 `wand:eval-string' function.

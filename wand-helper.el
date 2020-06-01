@@ -35,7 +35,7 @@ returns an empty string."
   "Evals a string non-interactively."
   (eval (read string)))
 
-(defun* wand-helper:maybe-uncomment-string (str skip-comment?
+(cl-defun wand-helper:maybe-uncomment-string (str skip-comment?
                                                 &key
                                                 major-mode-fn)
   "Uncomments a string if `skip-comment?' is `t'.  The comment
